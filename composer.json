@@ -13,7 +13,7 @@
   "repositories": [
     { "type": "composer", "url": "https://packages.drupal.org/8" },
     { "type": "git", "url": "git@git.drupal.org:sandbox/sierk/2837872.git" },
-    { "type": "git", "url": "git@git.drupal.org:sandbox/sierk/2837874.git" },
+    { "type": "git", "url": "git@git.drupal.org:sandbox/sierk/2837874.git" }
   ],
   "require": {
     "composer/installers": "^1.2",
