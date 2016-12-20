@@ -6,7 +6,22 @@
 /web/themes/contrib/
 /web/profiles/contrib/
 
+# Ignore files and directories for log files
+/log/*
+!/log/.gitkeep
+
 # Ignore Drupal's site specific files and directories
+/files/*
+!/files/private/
+/files/private/*
+!/files/private/.gitkeep
+!/files/config/
+/files/config/*
+!/files/config/sync
+/files/config/sync/*
+/files/config/sync/.gitkeep
+/web/files/
+!/web/files/.gitkeep
 /web/sites/sites.php
 /web/sites/*/*
 !/web/sites/*/default.settings.php
