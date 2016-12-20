@@ -19,7 +19,7 @@
     "composer/installers": "^1.2",
     "cweagans/composer-patches": "~1.0",
     "drupal/core": "~8.2",
-    "drupal/lets_organize": "~8.0",
+    "drupal/lets_organize": "^0.0",
     "drupal-composer/drupal-scaffold": "^2.2"
   },
   "require-dev": {
