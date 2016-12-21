@@ -42,7 +42,6 @@
     }
   },
   "scripts": {
-    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
       "LetsOrganize\\Composer\\ScriptHandler::checkComposerVersion"
     ],
