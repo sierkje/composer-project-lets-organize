@@ -44,26 +44,28 @@ class ScriptHandler {
      */
     public static function createRequiredFiles(Event $event) {
         $fs = new Filesystem();
+        $default_site_folder = getcwd() . static::$defaultSiteFolder;
 
         // Ensure that the default site folder is present.
-        if (!$fs->exists(static::$defaultSiteFolder)) {
-            $fs->mkdir(static::$defaultSiteFolder, 0666);
+        if (!$fs->exists($default_site_folder)) {
+            $fs->mkdir($default_site_folder, 0666);
         }
 
         // Prepare the default site's settings and services files for installation.
         foreach(['settings.php', 'services.yml'] as $filename) {
-            $origin_file= static::$defaultSiteFolder . '/default.' . $filename;
-            $target_file = static::$defaultSiteFolder . '/' . $filename;
-            $target_chmod = 0640;
-            if (!$fs->exists($origin_file) && $fs->exists($target_file)) {
-                $fs->copy($origin_file, $target_file);
-                $fs->chmod($target_file, $target_chmod);
-                $event->getIO()->write('Created a ' . $target_file . ' file with chmod ' . $target_chmod);
+            $origin = $default_site_folder . '/default.' . $filename;
+            $target = $default_site_folder . '/' . $filename;
+            $mode = 0640;
+            $messages = 'Created a ' . $target . ' file with chmod ' . $mode;
+            if (!$fs->exists($origin) && $fs->exists($target)) {
+                $fs->copy($origin, $target);
+                $fs->chmod($target, $mode);
+                $event->getIO()->write($messages);
             }
         }
 
         // Ensure that the default site folder is read only.
-        $fs->chmod(static::$defaultSiteFolder, 0440);
+        $fs->chmod($default_site_folder, 0440);
 
         // Ensure that required folders are present.
         foreach (static::getRequiredFolders() as $dir => $mode) {
@@ -125,14 +127,14 @@ class ScriptHandler {
      */
     protected static function getRequiredFolders() {
         return [
-            static::$defaultConfigSyncFolder => 0660,
-            static::$defaultLogFilesFolder => 0660,
-            static::$defaultPublicFilesFolder => 0664,
-            static::$defaultPrivateFilesFolder => 0660,
-            static::$webRoot . '/libraries' => 0664,
-            static::$webRoot . '/modules' => 0664,
-            static::$webRoot . '/profiles' => 0664,
-            static::$webRoot . '/themes' => 0664,
+            getcwd() . static::$defaultConfigSyncFolder => 0660,
+            getcwd() . static::$defaultLogFilesFolder => 0660,
+            getcwd() . static::$defaultPublicFilesFolder => 0664,
+            getcwd() . static::$defaultPrivateFilesFolder => 0660,
+            getcwd() . static::$webRoot . '/libraries' => 0664,
+            getcwd() . static::$webRoot . '/modules' => 0664,
+            getcwd() . static::$webRoot . '/profiles' => 0664,
+            getcwd() . static::$webRoot . '/themes' => 0664,
         ];
     }
 
