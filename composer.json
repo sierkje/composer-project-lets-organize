@@ -1,5 +1,5 @@
 {
-  "name": "sierkje/lets-organize",
+  "name": "sierkje/lets-organize-project",
   "description": "Drupal website construction kit for volunteer-driven community organizing.",
   "type": "project",
   "license": "GPL-2.0+",
@@ -37,17 +37,17 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
-    "classmap": [
-      ".scripts/composer/ScriptHandler.php"
-    ]
+    "psr-4": {
+      "sierkje\\LetsOrganizeProject\\": "src"
+    }
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
+      "sierkje\\LetsOrganizeProject\\Composer\\ScriptHandler::checkComposerVersion"
     ],
     "pre-update-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
+      "sierkje\\LetsOrganizeProject\\Composer\\ScriptHandler::checkComposerVersion"
     ]
   },
   "extra": {

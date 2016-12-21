@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \LetsOrganize\composer\ScriptHandler.
+ * Contains sierkje\LetsOrganizeProject\composer\ScriptHandler.
  */
 
-namespace LetsOrganize\composer;
+namespace sierkje\LetsOrganizeProject\Composer;
 
 use Composer\Script\Event;
 use Composer\Semver\Comparator;
