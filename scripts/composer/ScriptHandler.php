@@ -124,17 +124,19 @@ class ScriptHandler {
      * @return array
      *
      * @see \LetsOrganize\composer\ScriptHandler::createRequiredFiles()
+     *
+     * @todo Fix modes, or even better: remove this completely.
      */
     protected static function getRequiredFolders() {
         return [
-            getcwd() . static::$defaultConfigSyncFolder => 0660,
-            getcwd() . static::$defaultLogFilesFolder => 0660,
-            getcwd() . static::$defaultPublicFilesFolder => 0664,
-            getcwd() . static::$defaultPrivateFilesFolder => 0660,
-            getcwd() . static::$webRoot . '/libraries' => 0664,
-            getcwd() . static::$webRoot . '/modules' => 0664,
-            getcwd() . static::$webRoot . '/profiles' => 0664,
-            getcwd() . static::$webRoot . '/themes' => 0664,
+            getcwd() . static::$defaultConfigSyncFolder => 0770,
+            getcwd() . static::$defaultLogFilesFolder => 0770,
+            getcwd() . static::$defaultPublicFilesFolder => 0774,
+            getcwd() . static::$defaultPrivateFilesFolder => 0770,
+            getcwd() . static::$webRoot . '/libraries' => 0774,
+            getcwd() . static::$webRoot . '/modules' => 0774,
+            getcwd() . static::$webRoot . '/profiles' => 0774,
+            getcwd() . static::$webRoot . '/themes' => 0774,
         ];
     }
 
