@@ -66,14 +66,6 @@ class ScriptHandler {
 
         // Ensure that the default site folder is read only.
         $fs->chmod($default_site_folder, 0440);
-
-        // Ensure that required folders are present.
-        foreach (static::getRequiredFolders() as $dir => $mode) {
-            if (!$fs->exists($dir)) {
-                $fs->mkdir($dir, $mode);
-                $fs->touch($dir . '/.gitkeep');
-            }
-        }
     }
 
     /**
@@ -116,28 +108,6 @@ class ScriptHandler {
                 Please update your Composer before continuing</error>.");
             exit(1);
         }
-    }
-
-    /**
-     * Returns the folders that are required.
-     *
-     * @return array
-     *
-     * @see \LetsOrganize\composer\ScriptHandler::createRequiredFiles()
-     *
-     * @todo Fix modes, or even better: remove this completely.
-     */
-    protected static function getRequiredFolders() {
-        return [
-            getcwd() . static::$defaultConfigSyncFolder => NULL,
-            getcwd() . static::$defaultLogFilesFolder => NULL,
-            getcwd() . static::$defaultPublicFilesFolder => NULL,
-            getcwd() . static::$defaultPrivateFilesFolder => NULL,
-            getcwd() . static::$webRoot . '/libraries' => NULL,
-            getcwd() . static::$webRoot . '/modules' => NULL,
-            getcwd() . static::$webRoot . '/profiles' => NULL,
-            getcwd() . static::$webRoot . '/themes' => NULL,
-        ];
     }
 
 }

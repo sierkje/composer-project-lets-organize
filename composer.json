@@ -42,6 +42,7 @@
     }
   },
   "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
       "LetsOrganize\\Composer\\ScriptHandler::checkComposerVersion"
     ],
@@ -56,6 +57,15 @@
     ]
   },
   "extra": {
+    "drupal-scaffold": {
+      "excludes": [
+        "files/.gitkeep",
+        "libraries/.gitkeep",
+        "modules/.gitkeep",
+        "profiles/.gitkeep",
+        "themes/.gitkeep"
+      ]
+    },
     "installer-paths": {
       "web/core": ["type:drupal-core"],
       "web/libraries/{$name}": ["type:drupal-library"],
