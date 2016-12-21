@@ -129,14 +129,14 @@ class ScriptHandler {
      */
     protected static function getRequiredFolders() {
         return [
-            getcwd() . static::$defaultConfigSyncFolder => 0770,
-            getcwd() . static::$defaultLogFilesFolder => 0770,
-            getcwd() . static::$defaultPublicFilesFolder => 0774,
-            getcwd() . static::$defaultPrivateFilesFolder => 0770,
-            getcwd() . static::$webRoot . '/libraries' => 0774,
-            getcwd() . static::$webRoot . '/modules' => 0774,
-            getcwd() . static::$webRoot . '/profiles' => 0774,
-            getcwd() . static::$webRoot . '/themes' => 0774,
+            getcwd() . static::$defaultConfigSyncFolder => NULL,
+            getcwd() . static::$defaultLogFilesFolder => NULL,
+            getcwd() . static::$defaultPublicFilesFolder => NULL,
+            getcwd() . static::$defaultPrivateFilesFolder => NULL,
+            getcwd() . static::$webRoot . '/libraries' => NULL,
+            getcwd() . static::$webRoot . '/modules' => NULL,
+            getcwd() . static::$webRoot . '/profiles' => NULL,
+            getcwd() . static::$webRoot . '/themes' => NULL,
         ];
     }
 
