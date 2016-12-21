@@ -5,7 +5,7 @@
  * Contains \LetsOrganize\composer\ScriptHandler.
  */
 
-namespace LetsOrganize\composer;
+namespace LetsOrganize\Composer;
 
 use Composer\Script\Event;
 use Composer\Semver\Comparator;

@@ -37,23 +37,23 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
-    "classmap": [
-      "scripts/composer/ScriptHandler.php"
-    ]
+    "psr-4": {
+      "LetsOrganize\\composer\\": "src/Composer"
+    }
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
+      "LetsOrganize\\Composer\\ScriptHandler::checkComposerVersion"
     ],
     "pre-update-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
+      "LetsOrganize\\Composer\\ScriptHandler::checkComposerVersion"
     ],
     "post-install-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
+      "LetsOrganize\\Composer\\ScriptHandler::createRequiredFiles"
     ],
     "post-update-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
+      "LetsOrganize\\Composer\\ScriptHandler::createRequiredFiles"
     ]
   },
   "extra": {
