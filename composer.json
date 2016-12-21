@@ -19,7 +19,7 @@
     "composer/installers": "^1.2",
     "cweagans/composer-patches": "~1.0",
     "drupal/core": "~8.2",
-    "drupal/lets_organize": "^0.0",
+    "drupal/lets_organize": "~0.0@dev",
     "drupal-composer/drupal-scaffold": "^2.2"
   },
   "require-dev": {
@@ -44,16 +44,16 @@
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
     ],
     "pre-update-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
     ],
     "post-install-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
     ],
     "post-update-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
     ]
   },
   "extra": {
