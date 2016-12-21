@@ -37,9 +37,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
-    "psr-4": {
-      "LetsOrganize\\composer\\": "src/Composer/"
-    }
+    "classmap": [
+      "src/Composer/ScriptHandler.php"
+    ]
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
