@@ -9,7 +9,6 @@ namespace LetsOrganize\composer;
 
 use Composer\Script\Event;
 use Composer\Semver\Comparator;
-use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * Provides tasks to be performed during composer install and update.
@@ -18,55 +17,6 @@ use Symfony\Component\Filesystem\Filesystem;
  * @see https://github.com/drupal-composer/drupal-project/blob/8.x/scripts/composer/ScriptHandler.php
  */
 class ScriptHandler {
-
-    // The web root: the folder containing Drupal's index.php and core/ folder.
-    protected static $webRoot = '/web';
-
-    // The folder that contains the settings.php file for the default site.
-    protected static $defaultSiteFolder = '/web/sites/default';
-
-    // The folder that contains exported config .yml files for the default site.
-    protected static $defaultConfigSyncFolder = '/files/config/sync';
-
-    // The folder that contains the public files for the default site.
-    protected static $defaultPublicFilesFolder = '/web/files';
-
-    // The folder that contains the private files for the default site.
-    protected static $defaultPrivateFilesFolder = '/files/private';
-
-    // The folder that contains the web server log files for the default site.
-    protected static $defaultLogFilesFolder = '/log';
-
-    /**
-     * Creates the required files and folders.
-     *
-     * @param \Composer\Script\Event $event
-     */
-    public static function createRequiredFiles(Event $event) {
-        $fs = new Filesystem();
-        $default_site_folder = getcwd() . static::$defaultSiteFolder;
-
-        // Ensure that the default site folder is present.
-        if (!$fs->exists($default_site_folder)) {
-            $fs->mkdir($default_site_folder, 0666);
-        }
-
-        // Prepare the default site's settings and services files for installation.
-        foreach(['settings.php', 'services.yml'] as $filename) {
-            $origin = $default_site_folder . '/default.' . $filename;
-            $target = $default_site_folder . '/' . $filename;
-            $mode = 0640;
-            $messages = 'Created a ' . $target . ' file with chmod ' . $mode;
-            if (!$fs->exists($origin) && $fs->exists($target)) {
-                $fs->copy($origin, $target);
-                $fs->chmod($target, $mode);
-                $event->getIO()->write($messages);
-            }
-        }
-
-        // Ensure that the default site folder is read only.
-        $fs->chmod($default_site_folder, 0440);
-    }
 
     /**
      * Checks whether the installed version of composer is compatible.

@@ -48,12 +48,6 @@
     ],
     "pre-update-cmd": [
       "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
-    ],
-    "post-install-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
-    ],
-    "post-update-cmd": [
-      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
     ]
   },
   "extra": {
