@@ -5,7 +5,7 @@
  * Contains \LetsOrganize\composer\ScriptHandler.
  */
 
-namespace LetsOrganize\Composer;
+namespace LetsOrganize\composer;
 
 use Composer\Script\Event;
 use Composer\Semver\Comparator;
@@ -69,16 +69,16 @@ class ScriptHandler {
     }
 
     /**
-     * Checks whether the installed version of Composer is compatible.
+     * Checks whether the installed version of composer is compatible.
      *
-     * Composer 1.0.0 and higher consider a `composer install` without having a
+     * composer 1.0.0 and higher consider a `composer install` without having a
      * lock file present as equal to `composer update`. We do not ship with a
      * lock file to avoid merge conflicts downstream, meaning that if a project
-     * is installed with an older version of Composer the scaffolding of Drupal
+     * is installed with an older version of composer the scaffolding of Drupal
      * will not be triggered. We check this here instead of in drupal-scaffold
      * to be able to give immediate feedback to the end user, rather than
      * failing the installation after going through the lengthy process of
-     * compiling and downloading the Composer dependencies.
+     * compiling and downloading the composer dependencies.
      *
      * @param \Composer\Script\Event $event
      *
@@ -96,16 +96,16 @@ class ScriptHandler {
             $version = $composer::BRANCH_ALIAS_VERSION;
         }
 
-        // If Composer is installed through git we have no easy way to determine if
+        // If composer is installed through git we have no easy way to determine if
         // it is new enough, just display a warning.
         if ($version === '@package_version@' || $version === '@package_branch_alias_version@') {
-            $io->writeError('<warning>You are running a development version of Composer.
+            $io->writeError('<warning>You are running a development version of composer.
                 If you experience problems,
-                please update Composer to the latest stable version.</warning>');
+                please update composer to the latest stable version.</warning>');
         }
         elseif (Comparator::lessThan($version, '1.0.0')) {
-            $io->writeError("<error>Let's Organize requires Composer version 1.0.0 or higher.
-                Please update your Composer before continuing</error>.");
+            $io->writeError("<error>Let's Organize requires composer version 1.0.0 or higher.
+                Please update your composer before continuing</error>.");
             exit(1);
         }
     }

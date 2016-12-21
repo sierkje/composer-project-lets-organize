@@ -38,22 +38,22 @@
   "prefer-stable": true,
   "autoload": {
     "classmap": [
-      "src/Composer/ScriptHandler.php"
+      ".scripts/composer/ScriptHandler.php"
     ]
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
-      "LetsOrganize\\Composer\\ScriptHandler::checkComposerVersion"
+      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
     ],
     "pre-update-cmd": [
-      "LetsOrganize\\Composer\\ScriptHandler::checkComposerVersion"
+      "LetsOrganize\\composer\\ScriptHandler::checkComposerVersion"
     ],
     "post-install-cmd": [
-      "LetsOrganize\\Composer\\ScriptHandler::createRequiredFiles"
+      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
     ],
     "post-update-cmd": [
-      "LetsOrganize\\Composer\\ScriptHandler::createRequiredFiles"
+      "LetsOrganize\\composer\\ScriptHandler::createRequiredFiles"
     ]
   },
   "extra": {
